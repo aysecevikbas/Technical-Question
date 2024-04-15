@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>New User</h1>
+
+        <form id="user-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="displayname">Display Name:</label>
+            <input type="text" id="displayname" name="displayname" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="userrole">User Role:</label>
+            <select id="userrole" name="userrole" required>
+                <option value="guest">Guest</option>
+                <option value="admin">Admin</option>
+                <option value="superadmin">Super Admin</option>
+            </select>
+
+            <label for="active">Active:</label>
+            <input type="checkbox" id="active" name="active">
+
+            <button type="submit">Save</button>
+            <button type="button" onclick="cancel()">Cancel</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('user-form');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const displayname = document.getElementById('displayname').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const userrole = document.getElementById('userrole').value;
+            const active = document.getElementById('active').checked;
+
+            // Use the collected data here to process or save the user information
+
+            console.log({ username, displayname, phone, email, userrole, active });
+        });
+
+        function cancel() {
+            // Close the window or redirect to another page
+            window.close(); // Or window.location.href = 'users.html';
+        }
+    </script>
+</body>
+</html>
